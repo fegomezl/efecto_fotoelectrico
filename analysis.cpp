@@ -1,15 +1,54 @@
 #include <iostream>
 #include <vector>
 #include <cmath>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <sstream>
 #include <gsl/gsl_statistics_float.h>
 #include <gsl/gsl_math.h>
 #include <gsl/gsl_deriv.h>
 
+int read(std::string fname, std::vector<float> &x, std::vector<float> &y);
 void I_0 (const float ydata[], int init, float i_0[2]);
 void method_1 (const float xdata[], const float ydata[], const float i_0[2], int size, int init); 
 
 int main (void){
+        std::vector<float> x;
+        std::vector<float> y;
+        std::string fname = "Data/365_0.txt";
+        const int size = read(fname, x, y);
+
+        float xdata[size] = {};
+        float ydata[size] = {};
+        for (int ii = 0; ii < size; ii++){
+                xdata[ii] = x[ii];
+                ydata[ii] = y[ii];
+        }
+
+        int init = 150;
+        float i_0[2] = {};
+        I_0 (ydata, init, i_0);
+        method_1 (xdata, ydata, i_0, size, init);
+        std::cout << "Proccess completed!!\n";
         return 0;
+}
+
+int read(std::string fname, std::vector<float> &x, std::vector<float> &y){
+        std::ifstream infile(fname);
+        std::string line;
+        int ii=0;
+
+        while(std::getline(infile, line)){
+                std::stringstream ss(line);
+                float a, b;
+                if(ss >> a >> b){
+                        x.push_back(a);
+                        y.push_back(b);
+                        ii++;
+                }
+        }
+        return ii;
 }
 
 void I_0 (const float ydata[], int init, float i_0[2]){
