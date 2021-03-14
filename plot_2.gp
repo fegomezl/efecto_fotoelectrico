@@ -45,9 +45,9 @@ Results = sprintf(" R^2 = %.4f\n V_0 = (%.2f ± %.2f) V", R, V, V_err)
 set obj 2 rect from graph 0, 1 to graph 0.27, 0.85 fc rgb "white" front
 set lab 2 Results at graph 0, 0.96 front
 
-set arrow nohead from V, graph 0 to V, graph 1 lt 1 lc rgb "red"
-set arrow nohead from V1, graph 0 to V1, graph 1 lt 0 lc rgb "red"
-set arrow nohead from V2, graph 0 to V2, graph 1 lt 0 lc rgb "red"
+set arrow nohead from first V, graph 0 to first V, graph 1 lt 1 lc rgb "red"
+set arrow nohead from first V1, graph 0 to first V1, graph 1 lt 0 lc rgb "red"
+set arrow nohead from first V2, graph 0 to first V2, graph 1 lt 0 lc rgb "red"
 
 set arrow nohead from graph 0, first I to graph 1, first I lt 1 lc rgb "blue"
 set arrow nohead from graph 0, first I1 to graph 1, first I1 lt 0 lc rgb "blue"
