@@ -1,17 +1,4 @@
 365_0
-Curva de I vs V para longitud de onda de 365 nm
-Voltaje (V)
-Corriente electrica (pA)
-
 150
-
--0.6
-0.4
--1.72
-0.02
-
--0.68
-
-0.9946
-
-0.9227
+248
+28
