@@ -8,7 +8,9 @@ derivate: derivative.x settings.txt
 analysis: analysis.x
 	@./$< $$(sed -n 1p settings.txt; sed -n 2p settings.txt; sed -n 3p settings.txt; sed -n 4p settings.txt)
 	@gnuplot plot_analysis.gp
-	@rm data_aux.txt
+	@read -n 1 -s
+	@foxitreader $$(echo 'Graphs/graph_')$$(sed -n 1p settings.txt)$$(echo '.pdf') & > /dev/null 2>&1
+	@rm data_aux.txt	
 
 derivative.x: derivative.cpp
 	g++ $< $(LIB) -o $@  
