@@ -7,7 +7,7 @@
 #include <sstream>
 #include <gsl/gsl_statistics_double.h>
 #include <gsl/gsl_fit.h>
-//aja
+//ajaaaaa
 int read(std::string fname, std::vector<double> &x, std::vector<double> &y);
 void write(const std::vector<double> x, const std::vector<double> y, 
                 double xdata[], double ydata[], const int size);
